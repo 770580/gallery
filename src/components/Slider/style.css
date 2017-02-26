@@ -5,6 +5,10 @@
   margin: 0 auto;
 }
 
+.Slider__image--hidden {
+  display: none;
+}
+
 .Slider__button {
   position: absolute;
   top: 185px;

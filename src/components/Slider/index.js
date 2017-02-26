@@ -5,31 +5,57 @@ class Slider extends Component {
   constructor(props) {
     super(props);
     this.images = this.props.images;
-    this.currentSlider = 0;
+    this.state = {
+      currentSlider: 0,
+      previousSlider: 0
+    }
+  }
+
+  changeSlidersState(currentSlider, previousSlider) {
+    this.refs[currentSlider].className = '';
+    this.refs[previousSlider].className = 'Slider__image--hidden';
+
+    this.setState({
+      currentSlider: currentSlider,
+      previousSlider: previousSlider
+    });
   }
 
   previousSlider() {
-    const newCurrentSlider = this.currentSlider - 1;
-    this.currentSlider = ( newCurrentSlider < 0 ) ? 
-      this.images.length - 1 :
-      newCurrentSlider;
-    this.forceUpdate();
+    const previousSlider = this.state.currentSlider;
+    let currentSlider = this.state.currentSlider - 1;
+
+    if (currentSlider < 0) {
+      currentSlider = this.images.length - 1;
+    }
+    
+    this.changeSlidersState(currentSlider, previousSlider);
   }
 
   nextSlider() {
-    const newCurrentSlider = this.currentSlider + 1;
-    this.currentSlider = ( newCurrentSlider > this.images.length - 1 ) ? 
-      0 :
-      newCurrentSlider;
-    this.forceUpdate();
+    const previousSlider = this.state.currentSlider;
+    let currentSlider = this.state.currentSlider + 1;
+
+    if (currentSlider > this.images.length - 1) {
+      currentSlider = 0;
+    }
+
+    this.changeSlidersState(currentSlider, previousSlider);
   }
 
   render() {
+    const images = this.images.map((image, index) => {
+      const initialClass = (index !== 0) ? 'Slider__image--hidden' : '';
+      return (
+        <img ref={index} key={index} className={initialClass} src={image} width='680' height='410' alt='slide' />
+      )
+    });
+
     return (
-      <div className="Slider">
-        <img src={this.images[this.currentSlider]} width="680" height="410" alt="slide" />
-        <button onClick={this.previousSlider.bind(this)} className="Slider__button Slider__button--previous" type="button">&#60;</button>
-        <button onClick={this.nextSlider.bind(this)} className="Slider__button Slider__button--next" type="button">&#62;</button>
+      <div className='Slider'>
+        {images}
+        <button onClick={this.previousSlider.bind(this)} className='Slider__button Slider__button--previous' type='button'>&#60;</button>
+        <button onClick={this.nextSlider.bind(this)} className='Slider__button Slider__button--next' type='button'>&#62;</button>
       </div>
     );
   }
