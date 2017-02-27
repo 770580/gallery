@@ -10,35 +10,28 @@ class Slider extends Component {
     }
   }
 
-  changeSlidersState(currentSlider, previousSlider) {
-    this.refs[currentSlider].className = '';
-    this.refs[previousSlider].className = 'Slider__image--hidden';
+  computeNextSlider(direction) {
+    direction = (direction === 'left') ? direction = -1 : 1;
+    let nextSlider = this.state.currentSlider + direction;
+
+    if (nextSlider < 0) {
+      nextSlider = this.images.length - 1;
+    } else if (nextSlider > this.images.length - 1) {
+      nextSlider = 0;
+    }
+
+    return nextSlider;
+  }
+
+  changeSlider(direction) {
+    const nextSlider = this.computeNextSlider(direction)
+    
+    this.refs[nextSlider].className = '';
+    this.refs[this.state.currentSlider].className = 'Slider__image--hidden';
 
     this.setState({
-      currentSlider: currentSlider
+      currentSlider: nextSlider
     });
-  }
-
-  previousSlider() {
-    const previousSlider = this.state.currentSlider;
-    let currentSlider = this.state.currentSlider - 1;
-
-    if (currentSlider < 0) {
-      currentSlider = this.images.length - 1;
-    }
-    
-    this.changeSlidersState(currentSlider, previousSlider);
-  }
-
-  nextSlider() {
-    const previousSlider = this.state.currentSlider;
-    let currentSlider = this.state.currentSlider + 1;
-
-    if (currentSlider > this.images.length - 1) {
-      currentSlider = 0;
-    }
-
-    this.changeSlidersState(currentSlider, previousSlider);
   }
 
   render() {
@@ -52,8 +45,8 @@ class Slider extends Component {
     return (
       <div className='Slider'>
         {images}
-        <button onClick={this.previousSlider.bind(this)} className='Slider__button Slider__button--previous' type='button'>&#60;</button>
-        <button onClick={this.nextSlider.bind(this)} className='Slider__button Slider__button--next' type='button'>&#62;</button>
+        <button onClick={this.changeSlider.bind(this, 'left')} className='Slider__button Slider__button--previous' type='button'>&#60;</button>
+        <button onClick={this.changeSlider.bind(this)} className='Slider__button Slider__button--next' type='button'>&#62;</button>
       </div>
     );
   }
