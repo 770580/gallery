@@ -6,8 +6,7 @@ class Slider extends Component {
     super(props);
     this.images = this.props.images;
     this.state = {
-      currentSlider: 0,
-      previousSlider: 0
+      currentSlider: 0
     }
   }
 
@@ -16,8 +15,7 @@ class Slider extends Component {
     this.refs[previousSlider].className = 'Slider__image--hidden';
 
     this.setState({
-      currentSlider: currentSlider,
-      previousSlider: previousSlider
+      currentSlider: currentSlider
     });
   }
 
