@@ -2,55 +2,34 @@
   position: relative;
   width: 680px;
   height: 410px;
-  margin: 0 auto;
-}
-
-.Slider__image {
-  display: block;
-}
-
-.Slider__image--hidden {
-  display: none;
-}
-
-.Slider__button {
-  position: absolute;
-  top: 185px;
-  width: 40px;
-  height: 40px;
-  font-size: 30px;
-
-}
-
-.Slider__button--previous {
-  left:40px;
-}
-
-.Slider__button--next {
-  left:600px;
-}
-
-.Slider__dots {
-  padding: 0;
-  text-align: center;
-  list-style: none;
-}
-
-.Slider__dot {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
-  background: black;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0.3;
-}
-
-.Slider__dot:hover {
-  opacity: 1;
-}
-
-.Slider__dot--active {
-  opacity: 1;
-}
+  margin: 0 auto; }
+  .Slider__image {
+    display: block; }
+    .Slider__image--hidden {
+      display: none; }
+  .Slider__button {
+    position: absolute;
+    top: 185px;
+    width: 40px;
+    height: 40px;
+    font-size: 30px; }
+    .Slider__button--previous {
+      left: 40px; }
+    .Slider__button--next {
+      left: 600px; }
+  .Slider__dots {
+    padding: 0;
+    text-align: center; }
+  .Slider__dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    background: #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.3; }
+    .Slider__dot:hover {
+      opacity: 1; }
+    .Slider__dot--active {
+      opacity: 1; }

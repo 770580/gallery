@@ -1,0 +1,54 @@
+.Slider {
+  position: relative;
+  width: 680px;
+  height: 410px;
+  margin: 0 auto;
+
+  &__image {
+    display: block;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 185px;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+
+    &--previous {
+      left:40px;
+    }
+
+    &--next {
+      left:600px;
+    }
+  }
+
+  &__dots {
+    padding: 0;
+    text-align: center;
+  }
+
+  &__dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    background: #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.3;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}
