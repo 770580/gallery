@@ -31,7 +31,7 @@ class Slider extends Component {
           return (
             <img
               key={index} 
-              className={(this.state.currentSlide === index) ? '' : 'Slider__image--hidden'} 
+              className={`Slider__image ${(this.state.currentSlide === index) ? '' : 'Slider__image--hidden'}`} 
               src={image}
               width='680'
               height='410'
@@ -41,6 +41,17 @@ class Slider extends Component {
         })}
         <button onClick={this.changeSlide.bind(this, (this.state.currentSlide - 1))} className='Slider__button Slider__button--previous' type='button'>&#60;</button>
         <button onClick={this.changeSlide.bind(this, (this.state.currentSlide + 1))} className='Slider__button Slider__button--next' type='button'>&#62;</button>
+        <ul className='Slider__dots'>
+          {this.props.images.map((dot, index) => {
+            return (
+              <li
+                key={index}
+                className={`Slider__dot ${(this.state.currentSlide === index) ? 'Slider__dot--active' : ''}`}
+                onClick={this.changeSlide.bind(this, index)}
+              />
+            )
+          })}
+        </ul>
       </div>
     );
   }
