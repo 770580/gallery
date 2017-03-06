@@ -31,7 +31,7 @@ class Slider extends Component {
           return (
             <img
               key={index} 
-              className={`Slider__image ${(this.state.currentSlide === index) ? '' : 'Slider__image--hidden'}`} 
+              className={`Slider__image ${(this.state.currentSlide === index) ? 'Slider__image--visible' : 'Slider__image--hidden'}`} 
               src={image}
               width='680'
               height='410'
