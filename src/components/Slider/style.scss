@@ -11,9 +11,7 @@
     align-items: center;
   }
 
-  &__image {
-    display: block;
-
+  &__item {
     &--hidden {
       display: none;
     }
@@ -48,4 +46,4 @@
       opacity: 1;
     }
   }
-}
+} 

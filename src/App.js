@@ -14,7 +14,7 @@ const images = [
   'https://js.cx/carousel/10.png',
 ]
 
-const slidesToShow = 3;
+const slidesToShow = 5;
 
 class App extends Component {
   render() {

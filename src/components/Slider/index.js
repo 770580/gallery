@@ -58,10 +58,9 @@ class Slider extends Component {
             return (
               <li
                 key={index}
-                className='Slider__item'
+                className={`Slider__item ${(this.state.visibleSlides.indexOf(index) !== -1) ? 'Slider__item--visible' : 'Slider__item--hidden'}`}
                 style={{order: this.state.visibleSlides.indexOf(index)}} >
                 <img
-                  className={`Slider__image ${(this.state.visibleSlides.indexOf(index) !== -1) ? 'Slider__image--visible' : 'Slider__image--hidden'}`} 
                   src={image}
                   alt='slide'
                 />
@@ -71,7 +70,7 @@ class Slider extends Component {
           <li className='Slider__item' style={{order: 2000}}>
             <button
               onClick={this.changeSlide.bind(this, (this.state.currentSlide + 1))}
-              className='Slider__button Slider__button--previous' type='button'
+              className='Slider__button Slider__button--next' type='button'
             >
               &#62;
             </button>
