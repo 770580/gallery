@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 import Slider from './components/Slider';
 
 const images = [
-  'http://ru2.anyfad.com/items/t1@bd097733-3fd8-43cf-b554-9ac41c1fe2d1/Bolshaya-belaya-akula.jpg',
-  'http://urbanzen.org/wp-content/uploads/2013/06/Global-Water-Dance.jpg',
-  'http://image.prntscr.com/image/f44dd8e9274444d68efc246784255a90.jpg'
+  'https://js.cx/carousel/1.png',
+  'https://js.cx/carousel/2.png',
+  'https://js.cx/carousel/3.png',
+  'https://js.cx/carousel/4.png',
+  'https://js.cx/carousel/5.png',
+  'https://js.cx/carousel/6.png',
+  'https://js.cx/carousel/7.png',
+  'https://js.cx/carousel/8.png',
+  'https://js.cx/carousel/9.png',
+  'https://js.cx/carousel/10.png',
 ]
+
+const slidesToShow = 3;
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Slider images={images} />
+        <Slider images={images} slidesToShow={slidesToShow} />
       </div>
     );
   }
