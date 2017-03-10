@@ -32,7 +32,7 @@ describe('images', () => {
     expect(slider.find('.Slider__item').length).toBe(images.length + 2);
   });
 
-  it('on init active first image', () => {
+  it('on init active 3-th image', () => {
     expect(slider.find('.Slider__item--visible').length).toBe(slidesToShow);
   });
 });

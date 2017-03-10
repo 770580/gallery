@@ -97,8 +97,8 @@ Slider.propTypes = {
   slidesToShow: function(props, propName, componentName) {
     if (props[propName] % 2 === 0) {
       return new Error(
-        'Invalid prop `' + propName + '` supplied to' +
-        ' `' + componentName + '`. Validation failed. Should be odd'
+        `Invalid prop ${propName} supplied to ${componentName}
+         Validation failed. Should be odd`
       );
     }
   },
